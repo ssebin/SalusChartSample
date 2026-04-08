@@ -53,7 +53,7 @@ private enum class Screen { MENU, PIE, PROGRESS, RANGE }
 private fun SampleHome() {
     var screen by remember { mutableStateOf(Screen.MENU) }
 
-    Column(Modifier.fillMaxSize().padding(16.dp)) {
+    Column(Modifier.fillMaxSize().padding(20.dp)) {
         if (screen != Screen.MENU) {
             Text(
                 text = "← Back",
@@ -138,7 +138,9 @@ private fun ProgressChartExample() {
         strokeWidth = 20.dp,
         showLegend = true,
         interactionsEnabled = true,
-        tooltipEnabled = true
+        tooltipEnabled = true,
+        showLabels = false,
+        showValues = false
     )
 }
 
@@ -181,12 +183,11 @@ private fun RangeBarChartExample() {
         modifier = Modifier.fillMaxWidth().height(520.dp),
         data = rangeMarks,
         title = "Daily heart rate range",
-        yLabel = "bpm",
-        xLabel = "Day",
         barWidthRatio = 0.8f,
         barColor = Color(0xFFE91E63),
         interactionType = InteractionType.RangeBar.TOUCH_AREA,
         unit = "bpm",
+        yAxisFixedWidth = 80.dp,
         // try paging or scrolling:
         // pageSize = 3,
         // windowSize = 3,
